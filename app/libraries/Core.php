@@ -8,7 +8,7 @@
     */
 
 class Core{
-    protected $controladorActual = 'paginas';
+    protected $controladorActual = 'principal';
     protected $metodoActual = 'index';
     protected $parametros = [];
 

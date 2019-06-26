@@ -1,0 +1,16 @@
+table { 
+    width: 85%;
+    border: 1px solid #000;
+  }
+  tr, td {
+    
+    vertical-align: top;
+    border: 1px solid #000;
+  }
+  th {
+    background: #F8C471;
+    color: #fff;
+    }
+  input{
+  width: 100%;
+  }

@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="<?php echo RUTA_URL;?>/css/estilos.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <title><?php echo NOMBRESITIO;?></title>
 </head>
 <body>
-
-    <div class="container">
-        <nav class="navbar navbar-toggleable-lg navbar-inverse bg-inverse mb-3">
-            <button class=" navbar-toggler navbar-toogler-right" type="button" data-toogle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toogler-icon"></span>
-            </button>
-            <a href="<?php echo RUTA_URL; ?>" class="navbar-brand">CRUD REPOSITORIOS</a>
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item float-right">
-                        <a href="<?php echo RUTA_URL; ?>/paginas/agregar" class="nav-link">Insertar</a>
+    <div class="container">        
+        <nav class="navbar navbar-inverse" style="background-color: #F8C471; border-color: #F8C471;">
+            <div class="container-fluid" style="background-color: #F8C471; border-color: #F8C471;">
+                <div class="navbar-header" style="background-color: #F8C471; border-color: #F8C471;">
+                    <a class="navbar-brand" style="color: #FFFF" href="<?php echo RUTA_URL; ?>"><?php echo TITULOUA?></a>
+                </div>
+                <ul class="nav navbar-nav" >  
+                    <li class="active" style="background-color: #FFFF">
+                        <a href="<?php echo RUTA_URL; ?>/paginas/agregar" style="color:  #FFFF" >Crear proyecto</a>
+                    </li>
+                    <li style="padding-left: 400px">
+                        <a href="salir.php" style="color:  #FFFF" >Cerrar la sesión</a>
                     </li>
                 </ul>
             </div>
         </nav>
-    <h1><?php echo TITULO; ?></h1>

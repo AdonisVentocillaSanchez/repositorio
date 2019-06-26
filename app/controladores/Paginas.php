@@ -1,13 +1,13 @@
 <?php
     class Paginas extends Controlador{
         public function __construct(){
-            $this->usuarioModelo = $this->modelo('Usuario');
+            $this->usuarioModelo = $this->modelo('Proyecto');
         }
 
         public function index(){
 
-            //obtener los usuarios
-            $usuarios = $this->usuarioModelo->obtenerUsuarios();
+            // obtener los usuarios
+            $usuarios = $this->usuarioModelo->obtenerProyectos();
 
             $datos = [
                 'usuarios' => $usuarios
@@ -15,7 +15,7 @@
 
             $this->vista('paginas/inicio', $datos);
         }
-
+ 
         public function agregar(){
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -25,7 +25,7 @@
                     'telefono' => trim($_POST['telefono'])
                 ];
 
-                if ($this->usuarioModelo->agregarUsuario($datos)) {
+                if ($this->usuarioModelo->agregarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');
@@ -52,7 +52,7 @@
                     'telefono' => trim($_POST['telefono'])
                 ];
 
-                if ($this->usuarioModelo->actualizarUsuario($datos)) {
+                if ($this->usuarioModelo->actualizarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');
@@ -60,7 +60,7 @@
             }else{
 
                 //Obtener informacion de usuario desde el modelo
-                $usuario = $this->usuarioModelo->obtenerUsuarioId($id);
+                $usuario = $this->usuarioModelo->obtenerProyectoId($id);
 
                 $datos = [
                     'id_usuario' => $usuario->id_usuario,
@@ -77,7 +77,7 @@
         public function borrar($id){
 
             //Obtener informacion de usuario desde el modelo
-            $usuario = $this->usuarioModelo->obtenerUsuarioId($id);
+            $usuario = $this->usuarioModelo->obtenerProyectoId($id);
 
             $datos = [
                 'id_usuario' => $usuario->id_usuario,
@@ -91,7 +91,7 @@
                     'id_usuario' => $id
                 ];
 
-                if ($this->usuarioModelo->borrarUsuario($datos)) {
+                if ($this->usuarioModelo->borrarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');

@@ -2,23 +2,24 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Telefono</th>
-            <th>Acciones</th>
+            <th>C&oacute;digo</th>
+            <th>Proyecto</th>
+            <th>Tipo de proyecto</th>
+            <th>Fecha de registro</th>
+
+            <th colspan="2"><center>Acciones</center></th>
         </tr>
     </thead>
     
     <tbody>
     <?php foreach($datos['usuarios'] as $usuario): ?>
         <tr>
-            <td><?php echo $usuario->id_usuario; ?></td>
-            <td><?php echo $usuario->nombre; ?></td>
-            <td><?php echo $usuario->email; ?></td>
-            <td><?php echo $usuario->telefono; ?></td>
-            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id_usuario; ?>">Editar</a></td>
-            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id_usuario; ?>">Borrar</a></td>
+            <td><?php echo $usuario->codigo; ?></td>
+            <td><?php echo $usuario->nom_proy; ?></td>
+            <td><?php echo $usuario->tipo_proy; ?></td>
+            <td><?php echo $usuario->fecha_reg; ?></td>
+            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $usuario->id; ?>">Editar</a></td>
+            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $usuario->id; ?>">Borrar</a></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
