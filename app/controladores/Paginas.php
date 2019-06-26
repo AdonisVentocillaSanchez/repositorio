@@ -1,13 +1,14 @@
 <?php
     class Paginas extends Controlador{
         public function __construct(){
-            $this->usuarioModelo = $this->modelo('Proyecto');
+            $this->proyectoModelo = $this->modelo('Proyecto');
+            $this->institucionModelo = $this->modelo('Institucion');
         }
 
         public function index(){
 
             // obtener los proyectos
-            $proyectos = $this->usuarioModelo->obtenerProyectos();
+            $proyectos = $this->proyectoModelo->obtenerProyectos();
 
             $datos = [
                 'proyectos' => $proyectos
@@ -25,16 +26,15 @@
                     'telefono' => trim($_POST['telefono'])
                 ];
 
-                if ($this->usuarioModelo->agregarProyecto($datos)) {
+                if ($this->proyectoModelo->agregarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');
                 }
             }else{
+                $institucion = $this->institucionModelo->obtenerInstituciones();
                 $datos = [
-                    'nombre' => '',
-                    'email' => '',
-                    'telefono' => ''
+                    'instituciones' => $institucion
                 ];
 
                 $this->vista('paginas/agregar', $datos);
@@ -52,7 +52,7 @@
                     'telefono' => trim($_POST['telefono'])
                 ];
 
-                if ($this->usuarioModelo->actualizarProyecto($datos)) {
+                if ($this->proyectoModelo->actualizarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');
@@ -60,7 +60,7 @@
             }else{
 
                 //Obtener informacion de usuario desde el modelo
-                $usuario = $this->usuarioModelo->obtenerProyectoId($id);
+                $usuario = $this->proyectoModelo->obtenerProyectoId($id);
 
                 $datos = [
                     'id_usuario' => $usuario->id_usuario,
@@ -77,7 +77,7 @@
         public function borrar($id){
 
             //Obtener informacion de usuario desde el modelo
-            $usuario = $this->usuarioModelo->obtenerProyectoId($id);
+            $usuario = $this->proyectoModelo->obtenerProyectoId($id);
 
             $datos = [
                 'id_usuario' => $usuario->id_usuario,
@@ -91,7 +91,7 @@
                     'id_usuario' => $id
                 ];
 
-                if ($this->usuarioModelo->borrarProyecto($datos)) {
+                if ($this->proyectoModelo->borrarProyecto($datos)) {
                     redireccionar('/paginas');
                 }else {
                     die('Algo salio mal');
