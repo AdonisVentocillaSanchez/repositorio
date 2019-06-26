@@ -6,11 +6,11 @@
 
         public function index(){
 
-            // obtener los usuarios
-            $usuarios = $this->usuarioModelo->obtenerProyectos();
+            // obtener los proyectos
+            $proyectos = $this->usuarioModelo->obtenerProyectos();
 
             $datos = [
-                'usuarios' => $usuarios
+                'proyectos' => $proyectos
             ];
 
             $this->vista('paginas/inicio', $datos);
