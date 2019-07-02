@@ -91,7 +91,7 @@
 		  //Objetivos del Proyecto
 		  $obj_g = htmlentities(addslashes($_POST["obj_g"]));
 		  $avance_g = htmlentities(addslashes($_POST["avance_g"]));
-
+ 
 
 	     	$consulta = "INSERT INTO proyectos(`id`,`id_inst`,`codigo`,`fecha_reg`,`vigencia`,`tipo_proy`,`tipo_doc`,`num_reg`,`nom_proy`,`linea_gen`,`linea_esp`,`fecha_ini`,`fecha_fin`,`objetivo_gen`,`avance_og`) VALUES  (null,$id_inst,'$codigo','$fecha_reg','$vigencia','$tipo_proy','$tipo_doc','$num_reg','$nom_proy','$linea_gen','$linea_esp','$fecha_ini','$fecha_fin','$obj_g',$avance_g);
 	      	";
@@ -103,7 +103,7 @@
 		    //Obtiene el id del ultimo registro insertado
 		    $id_proy = $conexion->lastInsertId();
 
-
+ 
 		    //1 -> INSERT BLOQUE DE ACTIVIDADES
 		    $query = "INSERT INTO actividades (`id`,`item`,`avance`,`observaciones`,`proyectos_id`) VALUES (null,:item_a,:avance,:observaciones,$id_proy);";
 
@@ -182,4 +182,3 @@
   	}finally{
     	$conexion=null;
     }
-?>

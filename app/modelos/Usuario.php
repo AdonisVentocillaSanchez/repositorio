@@ -7,9 +7,9 @@
         }
 
         public function login($datos){
-            $this->db->query('SELECT * FROM usuarios WHERE usuario=:user AND clave=:clave');
+            $this->db->query('SELECT * FROM usuario WHERE user=:user AND pass=:pass');
             $this->db->bind(':user', $datos['user']);
-            $this->db->bind(':clave', $datos['pass']);
+            $this->db->bind(':pass', $datos['pass']);
 
             //Ejecutar y retornar
             if ($this->db->execute()) {
@@ -20,42 +20,50 @@
         }
 
         public function obtenerUsuario(){
-            $this->db->query('SELECT * FROM usuarios');
+            $this->db->query('SELECT * FROM usuario');
             $resultados = $this->db->registros();
             return $resultados;
         }
     
         public function agregarUsuario($datos){
-            $this->db->query('INSERT INTO usuarios (nombre,email,telefono) VALUES (:nombre, :email, :telefono)');
-
-            //Vinculando valores
-            $this->db->bind(':nombre', $datos['nombre']);
-            $this->db->bind(':email', $datos['email']);
-            $this->db->bind(':telefono', $datos['telefono']);
+            $this->db->query('INSERT INTO usuario (dni, nombres, apellidos, telefono, correo, fecha_nac, user, pass, tipo_usu, fecha_creacion) VALUES (:dni, :nombres, :apellidos, :telefono, :correo, :fecha_nac, :user, :pass, :tipo_usu, :fecha_creacion)');
             
+            //Vinculando valores
+            $this->db->bind(':dni', $datos['dni']);
+            $this->db->bind(':nombres', $datos['nombres']);
+            $this->db->bind(':apellidos', $datos['apellidos']);
+            $this->db->bind(':telefono', $datos['telefono']);
+            $this->db->bind(':correo', $datos['correo']);
+            $this->db->bind(':fecha_nac', $datos['fecha_nac']);
+            $this->db->bind(':user', $datos['user']);
+            $this->db->bind(':pass', $datos['pass']);
+            $this->db->bind(':tipo_usu', $datos['tipo_usu']);
+            $this->db->bind(':fecha_creacion', $datos['fecha_creacion']);
+                        
             //Ejecutar y retornar
             if ($this->db->execute()) {
+                
                 return true;
             }else {
                 return false;
             }
         }
-
-        public function obtenerUsuarioId($id){
-            $this->db->query('SELECT * FROM usuarios WHERE id_usuario = :id');
-            $this->db->bind(':id', $id);
+ 
+        public function obtenerUsuarioId($dni){
+            $this->db->query('SELECT * FROM usuario WHERE dni = :dni');
+            $this->db->bind(':dni', $dni);
             $fila = $this->db->registro();
             return $fila;
         }
 
         public function actualizarUsuario($datos){
-            $this->db->query('UPDATE usuarios SET nombre = :nombre, email = :email, telefono = :telefono WHERE id_usuario = :id');
+            $this->db->query('UPDATE usuario SET telefono = :telefono, correo = :correo, pass = :pass WHERE dni = :dni');
 
             //Vinculamos los valores
-            $this->db->bind(':id', $datos['id_usuario']);
-            $this->db->bind(':nombre', $datos['nombre']);
-            $this->db->bind(':email', $datos['email']);
             $this->db->bind(':telefono', $datos['telefono']);
+            $this->db->bind(':correo', $datos['correo']);
+            $this->db->bind(':pass', $datos['pass']);
+            $this->db->bind(':dni', $datos['dni']);
 
             //Ejecutar y retornar
             if ($this->db->execute()) {
@@ -65,11 +73,12 @@
             }
         }
 
-        public function borrarUsuario($datos){
-            $this->db->query('DELETE FROM usuarios WHERE id_usuario = :id');
+        public function estadoUsuario($datos){
+            $this->db->query('UPDATE usuario SET estado = :estado WHERE dni = :dni');
 
             //Vinculamos los valores
-            $this->db->bind(':id', $datos['id_usuario']);
+            $this->db->bind(':estado', $datos['estado']);
+            $this->db->bind(':dni', $datos['dni']);
 
             //Ejecutar y retornar
             if ($this->db->execute()) {

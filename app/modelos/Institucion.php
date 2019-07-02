@@ -6,10 +6,12 @@
             $this->db = new ConexionBD;
         }
 
-        public function obtenerInstituciones(){
-            $this->db->query('SELECT * FROM Instituciones');
+        public function obtenerInstitucion(){
+            $this->db->query('SELECT * FROM institucion');
             $resultados = $this->db->registros();
             return $resultados;
         }
+
+        
     }
 ?>
