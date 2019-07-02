@@ -8,12 +8,13 @@
         }
 
         public function login($datos){
-            $this->db->query('SELECT * FROM usuario WHERE user=:user AND pass=:pass');
+            $this->db->query('SELECT nombres FROM usuario WHERE user=:user AND pass=:pass AND estado=1');
             $this->db->bind(':user', $datos['user']);
             $this->db->bind(':pass', $datos['pass']);
 
-            //Ejecutar y retornar
-            if ($this->db->execute()) {
+            //Ejecutar y verificar
+            $nr = $this->db->rowCount();
+            if ($nr!=0) {
                 return true;
             }else {
                 return false;

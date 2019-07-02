@@ -77,6 +77,7 @@
 
         //Obtener la cantidad de filas con el metodo rowCount
         public function rowCount(){
+            $this->execute();
             return $this->stmt->rowCount();
         }
 
