@@ -17,7 +17,7 @@
         <nav class="navbar navbar-inverse" style="background-color: #F8C471; border-color: #F8C471;">
             <div class="container-fluid" style="background-color: #F8C471; border-color: #F8C471;">
                 <div class="navbar-header" style="background-color: #F8C471; border-color: #F8C471;">
-                    <a class="navbar-brand" style="color: #FFFF" href="<?php echo RUTA_URL; ?>"><?php echo TITULOUA?></a>
+                    <a class="navbar-brand" style="color: #FFFF" href="<?php echo RUTA_URL; ?>/paginas"><?php echo TITULOUA?></a>
                 </div>
                 <ul class="nav navbar-nav" >  
                     <li class="active" style="background-color: #FFFF">

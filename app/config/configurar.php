@@ -5,7 +5,7 @@
     // define('DB_USUARIO', 'root');
     // define('DB_PASSWORD', '');
     // define('DB_NOMBRE', 'crud');
-    define('DB_HOST', '178.32.158.243');
+    define('DB_HOST', '178.32.230.56');
     define('DB_USUARIO', 'root');
     define('DB_PASSWORD', 'ganzoanonimo');
     define('DB_NOMBRE', 'repositorio_final');

@@ -15,13 +15,13 @@
     <?php foreach($datos['proyectos'] as $proyecto): ?>
         <tr>
             <td><?php echo $proyecto->codigo; ?></td>
-            <td><?php echo $proyecto->nom_proy; ?></td>
+            <td><?php echo $proyecto->titulo; ?></td>
             <td><?php echo $proyecto->tipo_proy; ?></td>
-            <td><?php echo $proyecto->fecha_reg; ?></td>
-            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $proyecto->id; ?>">Editar</a></td>
-            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $proyecto->id; ?>">Borrar</a></td>
+            <td><?php echo $proyecto->fecha_registro; ?></td>
+            <td><a href="<?php echo RUTA_URL; ?>/paginas/editar/<?php echo $proyecto->codigo; ?>">Editar</a></td>
+            <td><a href="<?php echo RUTA_URL; ?>/paginas/borrar/<?php echo $proyecto->codigo; ?>">Borrar</a></td>
         </tr>
-    <?php endforeach; ?>
+    <?php endforeach; ?> 
     </tbody>
 </table>
 <?php require RUTA_APP . '/vistas/inc/footer.php';?>
