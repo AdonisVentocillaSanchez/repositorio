@@ -6,9 +6,9 @@
             $this->db = new ConexionBD;
         }
 
-        public function obtenerTabla()
+        public function obtenerTabla($tabla)
         {
-            $this->db->query('SELECT * FROM tipo_usuario');
+            $this->db->query("SELECT * FROM $tabla");
             $resultados = $this->db->registros();
             return $resultados;
         }

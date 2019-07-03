@@ -26,7 +26,7 @@
         public function register()
         {
             //Obtener tabla de tipo de usuario
-            $tipo = $this->tablaModelo->obtenerTabla();
+            $tipo = $this->tablaModelo->obtenerTabla("tipo_usuario");
             $datos = [
                 'tipo_usuario' => $tipo
             ];
@@ -44,9 +44,9 @@
                     'fecha_creacion' => date("Y-m-d")
                 ];
                 if ($this->usuarioModelo->agregarUsuario($datos)) {
-                    redireccionar('/principal/index');
+                    redireccionar('/');
                 }else {
-                    die('Algo salio mal');
+                    redireccionar('/principal/register?f=t');
                 }
             }else{
                 

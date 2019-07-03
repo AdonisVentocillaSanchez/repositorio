@@ -7,7 +7,7 @@
         }
 
         public function obtenerProyectos(){
-            $this->db->query('SELECT * FROM proyectos');
+            $this->db->query('SELECT * FROM vw_proyecto');
             $resultados = $this->db->registros();
             return $resultados;
         }

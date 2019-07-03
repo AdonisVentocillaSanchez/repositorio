@@ -22,7 +22,7 @@
         }
 
         public function obtenerUsuario(){
-            $this->db->query('SELECT * FROM usuario');
+            $this->db->query('SELECT * FROM vw_usuario');
             $resultados = $this->db->registros();
             return $resultados;
         }

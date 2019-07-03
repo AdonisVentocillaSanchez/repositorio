@@ -11,7 +11,13 @@
 <body>
 	<div class="login-page">
 	<h2>Registrate</h2>
-		<div class="form">		 
+		<div class="form"
+				<?php
+					if(isset($_GET["f"]) && $_GET["f"] == 't')
+					{
+						echo "<div style='color:red'>Algunos datos no son validos </div>";
+					}
+				?>>		 
 			<form class="login-form" action="<?php echo RUTA_URL ?>/principal/register" method="POST">			     
 			<div class="form-group">
 				<label>DNI</label>

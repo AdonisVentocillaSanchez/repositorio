@@ -2,7 +2,7 @@
     class Paginas extends Controlador{
         public function __construct(){
             $this->proyectoModelo = $this->modelo('Proyecto');
-            $this->institucionModelo = $this->modelo('Institucion');
+            $this->tablaModelo = $this->modelo('Tabla');
         }
 
         public function index(){
@@ -21,9 +21,15 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $datos = [
-                    'nombre' => trim($_POST['nombre']),
-                    'email' => trim($_POST['email']),
-                    'telefono' => trim($_POST['telefono'])
+                    'codigo' => trim($_POST['codigo']),
+                    'titulo' => trim($_POST['titulo']), 
+                    'institucion' => trim($_POST['institucion']), 
+                    'tipo_proy' => trim($_POST['tipo_proy']), 
+                    'tipo_doc' => trim($_POST['tipo_doc']), 
+                    'linea_gene' => trim($_POST['linea_gene']), 
+                    'linea_espe' => trim($_POST['linea_espe']), 
+                    'obj_gene' => trim($_POST['obj_gene']), 
+                    'fecha_registro' => date("Y-m-d")
                 ];
 
                 if ($this->proyectoModelo->agregarProyecto($datos)) {
@@ -32,9 +38,17 @@
                     die('Algo salio mal');
                 }
             }else{
-                $institucion = $this->institucionModelo->obtenerInstituciones();
+                $insti = $this->tablaModelo->obtenerTabla("institucion");
+                $proy = $this->tablaModelo->obtenerTabla("tipo_proyecto");
+                $doc = $this->tablaModelo->obtenerTabla("tipo_documento");
+                $l_gene = $this->tablaModelo->obtenerTabla("linea_general");
+                $l_espe = $this->tablaModelo->obtenerTabla("linea_especifica");             
                 $datos = [
-                    'instituciones' => $institucion
+                    'institucion' => $insti,
+                    'tipo_proyecto' => $proy,
+                    'tipo_documento' => $doc,
+                    'linea_general' => $l_gene,
+                    'linea_especifica' => $l_espe
                 ];
 
                 $this->vista('paginas/agregar', $datos);

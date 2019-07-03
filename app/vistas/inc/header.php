@@ -7,8 +7,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <title><?php echo NOMBRESITIO;?></title>
 </head>
@@ -24,7 +22,7 @@
                         <a href="<?php echo RUTA_URL; ?>/paginas/agregar" style="color:  #FFFF" >Crear proyecto</a>
                     </li>
                     <li style="padding-left: 400px">
-                        <a href="salir.php" style="color:  #FFFF" >Cerrar la sesión</a>
+                        <a href="salir" style="color:  #FFFF" >Cerrar la sesión</a>
                     </li>
                 </ul>
             </div>
