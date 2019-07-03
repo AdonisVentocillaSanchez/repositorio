@@ -1,6 +1,9 @@
-<?php require RUTA_APP . '/vistas/inc/header.php';?>
+<?php require RUTA_APP . '/vistas/inc/header.php';
+session_start();
+echo $_SESSION["dni"];?>
 <table class="table">
     <thead>
+        
         <tr>
             <th>C&oacute;digo</th>
             <th>Proyecto</th>

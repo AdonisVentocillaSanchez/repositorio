@@ -8,21 +8,35 @@
         }
 
         public function login($datos){
-            $this->db->query('SELECT nombres FROM usuario WHERE user=:user AND pass=:pass AND estado=1');
+            $this->db->query('SELECT * FROM usuario WHERE user=:user AND pass=:pass AND estado=1');
             $this->db->bind(':user', $datos['user']);
             $this->db->bind(':pass', $datos['pass']);
 
+            $d =$this->db->execute();
             //Ejecutar y verificar
             $nr = $this->db->rowCount();
             if ($nr!=0) {
+                session_start();
+                    $_SESSION["dni"] = 74840263;
+                    $_SESSION["nombres"] = "adonis";
+                    $_SESSION["apellidos"] = $d->apellidos;
+                    $_SESSION["tipo"] = $d->tipo_usu;
                 return true;
             }else {
                 return false;
             }
         }
 
-        public function obtenerUsuario(){
-            $this->db->query('SELECT * FROM vw_usuario');
+        public function obtenerUsuario($datos){
+            $this->db->query('SELECT * FROM usuario WHERE user=:user AND pass=:pass AND estado=1');
+            $this->db->bind(':user', $datos['user']);
+            $this->db->bind(':pass', $datos['pass']);
+            $resultados = $this->db->registros();
+            return $resultados;
+        }
+
+        public function obtenerUsuarioD(){
+            $this->db->query('SELECT * FROM usuario');
             $resultados = $this->db->registros();
             return $resultados;
         }
@@ -51,7 +65,14 @@
             }
         }
  
-        public function obtenerUsuarioId($dni){
+        public function obtenerUsuarioDNI($dni){
+            $this->db->query('SELECT * FROM usuario WHERE dni = :dni');
+            $this->db->bind(':dni', $dni);
+            $fila = $this->db->registro();
+            return $fila;
+        }
+
+        public function obtenerUsuarioTipo($dni){
             $this->db->query('SELECT * FROM usuario WHERE dni = :dni');
             $this->db->bind(':dni', $dni);
             $fila = $this->db->registro();
